@@ -4,15 +4,20 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
 
 
-[jekyll-organization]: https://github.com/jekyll
+
+
+
+
+A Data Scientist within IBM Ireland with passion  in the areas of Machine Learning, Deep Learning and Graph Analytics. 
+
+Experienced in solving business problems by leading work on design and development of machine learning workflows t across domains such as recommender systems, personalisation, Industrial IoT, sensors enabled supply chain networks, social networks, economic networks or graphs, and spatio-temporal data analysis.
+
+ The purpose of this site is to understand how things work and explain them in plain english.
+
+Find me on [Linkedin](https://www.linkedin.com/in/faisal-ghaffar-15202118/), [Twitter](https://twitter.com/ghaffar_faisal)
+
+
+
+*IMPORTANT: All opinions expressed on this blog are my own and do not represent those of my employer.*
