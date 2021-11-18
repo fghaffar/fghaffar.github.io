@@ -19,16 +19,16 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Faisal Ghaffar
-email: your-email@example.com
+email: ghaffar.faisal@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   My ramblings & ruminations on machine learning, deep learning, crypto, stocks, and personal finance emanagement
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/docs" # the subpath of your site, e.g. /blog
+url: "https://fghaffar.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ghaffar_faisal
 github_username:  fghaffar
-
+markdown: kramdown
 # Build settings
-theme: minima
+#theme: minima
 remote_theme: pages-themes/hacker@v0.2.0
 plugins:
   - jekyll-feed
