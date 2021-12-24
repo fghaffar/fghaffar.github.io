@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    Linear Transformation in Different Basis - Fay&#39;s Blog
+    
+  </title>
+
+  <meta name="description" content="A vector $u$ is characterised with respect to a basis of a coordinate system. The basis provide a reference that is used to associate numbers with geometric ...">
+
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/updates/2021/12/24/Linear-Transformation-in-Different-Basis.html">
+  <link rel="alternate" type="application/rss+xml" title="Fay&#39;s Blog" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">Fay&#39;s Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+  <header class="masthead">
+    
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Linear Transformation in Different Basis</h1>
+            
+            <span class="meta">Posted by
+              <a href="#">Faisal Ghaffar</a>
+              on December 24, 2021 &middot; <span class="reading-time" title="Estimated read time">
+  
+   6 mins  read </span>
+
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        <p>A vector $u$ is characterised with respect to a basis of a coordinate system. The basis provide a reference that is used to associate numbers with geometric vectors.  In the $\mathbb{R}^2$ Cartesian plane, a vector $u=\begin{bmatrix} 3 \\ 2 \end{bmatrix}$ is considered as a linear combination of the standard basis vectors $i=\begin{bmatrix} 1 \\ 0\end{bmatrix}$ and $j=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ as:</p>
+
+\[u = 3i + 2j\]
+
+<p>Now, to represent this vector $u$ in a different coordinate system, basis of the vector needs to be changed. Imagine we rotate the basis by $\theta$ degree which can be envisaged as new coordiante system, then new basis are determined as:</p>
+
+\[i' = i.\cos \theta + j.\sin \theta \\ j' = i.(-\sin \theta) + j.\cos \theta\]
+
+<p>We will write this in matrix form as:</p>
+
+\[\begin{bmatrix} i' \\\\ j' \end{bmatrix} = \begin{bmatrix} \cos \theta &amp; \sin \theta \\ -\sin \theta &amp; \cos \theta \end{bmatrix} \begin{bmatrix} i \\\\ j \end{bmatrix}\]
+
+<p>To have new basis as columns, we transpose matrices.</p>
+
+\[\begin{bmatrix} i' \\\\ j' \end{bmatrix}^\intercal = \begin{bmatrix} i \\\\ j \end{bmatrix}^\intercal\begin{bmatrix} \cos \theta &amp; \sin \theta \\ -\sin \theta &amp; \cos \theta \end{bmatrix}^\intercal\]
+
+\[\begin{bmatrix} i' &amp; j' \end{bmatrix} =\begin{bmatrix} i &amp; j \end{bmatrix} \begin{bmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{bmatrix}\]
+
+<p>This new matrix on the right hand side is called <em>change of basis matrix</em>  and  each column of this matrix is a basis vector of the new basis. Let’s denote it with $X$:</p>
+
+\[X = \begin{bmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{bmatrix}\]
+
+<p>A change of basis matrix $X$ (which contains the basis vectors as columns) maps an input basis $B_I = \begin{bmatrix} i &amp; j \end{bmatrix}$ to an output basis $B_O = \begin{bmatrix} i’ &amp; j’ \end{bmatrix}$ as:</p>
+
+\[B_O = B_I.X\]
+
+<p>From this, we can calcualte the change of basis matrix given input and output basis by multiplying both sides with inverse of $B_I$ as given below:</p>
+
+\[B_O = B_I.X \\ B_I^{-1}B_O = B_I^{-1}B_I.X \\  B_I^{-1}B_O = I.X \\ X = B_I^{-1}B_O\]
+
+<p><strong>How to change the basis of a vector?</strong></p>
+
+<p>Let’s express a vector $u$ as linear combination of the input and output basis vectors as:</p>
+
+\[\begin{cases}u &amp; =c_1.i + c_2.j \\ u &amp; =d_1.i' + d_2.j'\end{cases}\]
+
+<p>The scalars $c_1$ and $c_2$ are weighting the linear combinations of the input basis vectors, and the scalars $d_1$ and $d_2$ are the weights for linear combination of output vector. By merging the two equations for $u$ and writing in matrix form, we get:</p>
+
+<p>\(\begin{bmatrix} i &amp; j \end{bmatrix} \begin{bmatrix} c_1 \\\\ c_2 \end{bmatrix} = \begin{bmatrix} i' &amp; j' \end{bmatrix} \begin{bmatrix} d_1 \\\\ d_2 \end{bmatrix}\) where $\begin{bmatrix} i &amp; j \end{bmatrix} = B_I$ is the input basis and  $\begin{bmatrix} i’ &amp; j’ \end{bmatrix}=B_O$ is the output basis.</p>
+
+<p>Let’s denote vector $u$ in output basis as $[u]<em>{B_O}$ and in input basis as $[u]</em>{B_I}$</p>
+
+\[\implies B_I.[u]_{B_I} = B_O.[u]_{B_O}\]
+
+<p>To calculate the vector components in the output basis $B_O$, by multiply both sides by $B_O^{-1}$ we get:</p>
+
+\[B_O^{-1}B_I.[u]_{B_I} = B_O^{-1}B_O.[u]_{B_O}\]
+
+\[[u]_{B_O} = B_O^{-1}B_I.[u]_{B_I}\]
+
+<p>$B_O^{-1}B_I$ is the inverse of $B_I^{-1}B_O$ which is the change of basis matrix $X$ described before. 
+In other words, <em>inverse of change of basis matrix</em> ($X^{-1}$) allows us to convert vectors from an input basis $B_I$ to an output basis $B_O$ and $X$ from $B_O$ to $B_I$.</p>
+
+<p>If $B_I$ is standard basis, means 
+\(X = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}\), then:</p>
+
+\[[u]_{B_O} = B_O^{-1}.I.[u]_{B_I}\]
+
+\[[u]_{B_O} = B_O^{-1}.[u]_{B_I}\]
+
+<p><strong>How to transorm a vector in new basis?</strong></p>
+
+<p>Consider a matrix $A$ associated to a tranformation $T$, when applied to a vector $u$ in basis $B_1$, produces a transformed vector in basis $B_1$ denoted as $[v]_{B_1}$. 
+\([v]_{B_1} = A[u]_{B_1} 
+\tag{1}\)</p>
+
+<p>When vector $u$ is represented in another basis, say  $B_2$, a change of basis matrix $X$ is applied as discussed in previous section.</p>
+
+<p>So vector $u$ in basis $B_2$ denoted as $[u]_{B_2}$ is given as:</p>
+
+<p>\([u]_{B_2} = X[u]_{B_1}\) To transform $[u]_{B_2}$ with changed basis to another vector $v$, we need to apply a transformation matrix (say $D$) relative to  basis $B_2$. The tranformation will be:</p>
+
+\[[v]_{B_2} = D[u]_{B_2}\]
+
+<p>The transormation matrix $D$ is unknown and needs to be determined in new basis $B_2$.</p>
+
+<p>There is an alternative way to determine the transfomed vector $[v]_{B2}$. Steps are listed below:</p>
+
+<ul>
+  <li>Convert the vector back to basis $B1$ to produce $[u]<em>{B_1}$. This is done by applying change of basis matrix $X$ to $[v]</em>{B_2}$ as:</li>
+</ul>
+
+\[[u]_{B_1} = X[v]_{B_2} \tag{2}\]
+
+<ul>
+  <li>Apply tranformation matrix $A$ to transform $[u]<em>{B_1}$ to $[v]</em>{B_1}$ as per equation 1.</li>
+</ul>
+
+\[[v]_{B_1} = A[u]_{B_1} \tag{3}\]
+
+<ul>
+  <li>Replace $[u]_{B_1}$ in equation 3 with right hand side part of equation 2,</li>
+</ul>
+
+\[[v]_{B_1} = AX[v]_{B_2} \tag{4}\]
+
+<ul>
+  <li>
+    <p>Change the basis of $[v]_{B_1}$ from $B_1$ to  $B_2$ by applying inverse of change of basis matrix $X^{-1}$
+ \([v]_{B_2} = X^{-1}[v]_{B_1}\)</p>
+
+    <p>Replace $[v]_{B_1}$ with right hand side of equation 4. We get:</p>
+
+\[[v]_{B_2} = X^{-1}AX[v]_{B_2}\]
+  </li>
+</ul>
+
+<p>However, we already have transformed vector $v$ in basis $B_2$ as:</p>
+
+<p>\([v]_{B_2} = D[u]_{B_2}\)
+\(\implies D= X^{-1}AX\)</p>
+
+<p>With this, we have determined the transormation matrix $D$ in new basis corresponding to a transformation (represented by $A$) in old basis through just the change of basis matrix $X$ and its inverse $X^{-1}$.</p>
+
+<p>This $D= X^{-1}AX$ can be interpreted as decomposition of a matrix $D$ into matrices $X$ and $A$. It has many applications in machine and deep learning whihc we will discuss in future posts.</p>
+
+
+        <hr>
+
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left" href="/updates/2021/11/24/firstpost.html" data-toggle="tooltip" data-placement="top" title="My First Post">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:ghaffar.faisal@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/ghaffar_faisal">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://www.linkedin.com/in/faisal-ghaffar-15202118">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/fghaffar">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; Faisal Ghaffar 2021 - Site Theme Copyright &copy; 2013-2021 Start Bootstrap LLC</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/scripts.js"></script>
+
+<script src="/assets/scripts.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true},
+      jax: ["input/TeX","input/MathML","input/AsciiMath","output/CommonHTML"],
+      extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js","AssistiveMML.js", "[Contrib]/a11y/accessibility-menu.js"],
+      TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+      equationNumbers: {
+      autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+</body>
+
+</html>
