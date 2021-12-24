@@ -1,1 +1,115 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-24T15:28:09+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fay’s Blog</title><subtitle>My ramblings &amp; ruminations on machine learning, deep learning, and quant analysis of crypto/stocks.</subtitle><author><name>Faisal Ghaffar</name></author><entry><title type="html">My First Post</title><link href="http://localhost:4000/updates/2021/11/24/firstpost.html" rel="alternate" type="text/html" title="My First Post" /><published>2021-11-24T00:00:00+00:00</published><updated>2021-11-24T00:00:00+00:00</updated><id>http://localhost:4000/updates/2021/11/24/firstpost</id><content type="html" xml:base="http://localhost:4000/updates/2021/11/24/firstpost.html">&lt;p&gt;This is my first post. Thank you for reading it!&lt;/p&gt;</content><author><name>Faisal Ghaffar</name></author><category term="updates" /><summary type="html">This is my first post. Thank you for reading it!</summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-24T12:27:38+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fay’s Blog</title><subtitle>My ramblings &amp; ruminations on machine learning, deep learning, and quant analysis of crypto/stocks.</subtitle><author><name>Faisal Ghaffar</name></author><entry><title type="html">Linear Transformation in Different Basis</title><link href="http://localhost:4000/updates/2021/12/24/Linear-Transformation-in-Different-Basis.html" rel="alternate" type="text/html" title="Linear Transformation in Different Basis" /><published>2021-12-24T00:00:00+00:00</published><updated>2021-12-24T00:00:00+00:00</updated><id>http://localhost:4000/updates/2021/12/24/Linear%20Transformation%20in%20Different%20Basis</id><content type="html" xml:base="http://localhost:4000/updates/2021/12/24/Linear-Transformation-in-Different-Basis.html">&lt;p&gt;A vector $u$ is characterised with respect to a basis of a coordinate system. The basis provide a reference that is used to associate numbers with geometric vectors.  In the $\mathbb{R}^2$ Cartesian plane, a vector $u=\begin{bmatrix} 3 \\ 2 \end{bmatrix}$ is considered as a linear combination of the standard basis vectors $i=\begin{bmatrix} 1 \\ 0\end{bmatrix}$ and $j=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ as:&lt;/p&gt;
+
+\[u = 3i + 2j\]
+
+&lt;p&gt;Now, to represent this vector $u$ in a different coordinate system, basis of the vector needs to be changed. Imagine we rotate the basis by $\theta$ degree which can be envisaged as new coordiante system, then new basis are determined as:&lt;/p&gt;
+
+\[i&apos; = i.\cos \theta + j.\sin \theta \\ j&apos; = i.(-\sin \theta) + j.\cos \theta\]
+
+&lt;p&gt;We will write this in matrix form as:&lt;/p&gt;
+
+\[\begin{bmatrix} i&apos; \\\\ j&apos; \end{bmatrix} = \begin{bmatrix} \cos \theta &amp;amp; \sin \theta \\ -\sin \theta &amp;amp; \cos \theta \end{bmatrix} \begin{bmatrix} i \\\\ j \end{bmatrix}\]
+
+&lt;p&gt;To have new basis as columns, we transpose matrices.&lt;/p&gt;
+
+\[\begin{bmatrix} i&apos; \\\\ j&apos; \end{bmatrix}^\intercal = \begin{bmatrix} i \\\\ j \end{bmatrix}^\intercal\begin{bmatrix} \cos \theta &amp;amp; \sin \theta \\ -\sin \theta &amp;amp; \cos \theta \end{bmatrix}^\intercal\]
+
+\[\begin{bmatrix} i&apos; &amp;amp; j&apos; \end{bmatrix} =\begin{bmatrix} i &amp;amp; j \end{bmatrix} \begin{bmatrix} \cos \theta &amp;amp; -\sin \theta \\ \sin \theta &amp;amp; \cos \theta \end{bmatrix}\]
+
+&lt;p&gt;This new matrix on the right hand side is called &lt;em&gt;change of basis matrix&lt;/em&gt;  and  each column of this matrix is a basis vector of the new basis. Let’s denote it with $X$:&lt;/p&gt;
+
+\[X = \begin{bmatrix} \cos \theta &amp;amp; -\sin \theta \\ \sin \theta &amp;amp; \cos \theta \end{bmatrix}\]
+
+&lt;p&gt;A change of basis matrix $X$ (which contains the basis vectors as columns) maps an input basis $B_I = \begin{bmatrix} i &amp;amp; j \end{bmatrix}$ to an output basis $B_O = \begin{bmatrix} i’ &amp;amp; j’ \end{bmatrix}$ as:&lt;/p&gt;
+
+\[B_O = B_I.X\]
+
+&lt;p&gt;From this, we can calcualte the change of basis matrix given input and output basis by multiplying both sides with inverse of $B_I$ as given below:&lt;/p&gt;
+
+\[B_O = B_I.X \\ B_I^{-1}B_O = B_I^{-1}B_I.X \\  B_I^{-1}B_O = I.X \\ X = B_I^{-1}B_O\]
+
+&lt;p&gt;&lt;strong&gt;How to change the basis of a vector?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s express a vector $u$ as linear combination of the input and output basis vectors as:&lt;/p&gt;
+
+\[\begin{cases}u &amp;amp; =c_1.i + c_2.j \\ u &amp;amp; =d_1.i&apos; + d_2.j&apos;\end{cases}\]
+
+&lt;p&gt;The scalars $c_1$ and $c_2$ are weighting the linear combinations of the input basis vectors, and the scalars $d_1$ and $d_2$ are the weights for linear combination of output vector. By merging the two equations for $u$ and writing in matrix form, we get:&lt;/p&gt;
+
+&lt;p&gt;\(\begin{bmatrix} i &amp;amp; j \end{bmatrix} \begin{bmatrix} c_1 \\\\ c_2 \end{bmatrix} = \begin{bmatrix} i&apos; &amp;amp; j&apos; \end{bmatrix} \begin{bmatrix} d_1 \\\\ d_2 \end{bmatrix}\) where $\begin{bmatrix} i &amp;amp; j \end{bmatrix} = B_I$ is the input basis and  $\begin{bmatrix} i’ &amp;amp; j’ \end{bmatrix}=B_O$ is the output basis.&lt;/p&gt;
+
+&lt;p&gt;Let’s denote vector $u$ in output basis as $[u]&lt;em&gt;{B_O}$ and in input basis as $[u]&lt;/em&gt;{B_I}$&lt;/p&gt;
+
+\[\implies B_I.[u]_{B_I} = B_O.[u]_{B_O}\]
+
+&lt;p&gt;To calculate the vector components in the output basis $B_O$, by multiply both sides by $B_O^{-1}$ we get:&lt;/p&gt;
+
+\[B_O^{-1}B_I.[u]_{B_I} = B_O^{-1}B_O.[u]_{B_O}\]
+
+\[[u]_{B_O} = B_O^{-1}B_I.[u]_{B_I}\]
+
+&lt;p&gt;$B_O^{-1}B_I$ is the inverse of $B_I^{-1}B_O$ which is the change of basis matrix $X$ described before. 
+In other words, &lt;em&gt;inverse of change of basis matrix&lt;/em&gt; ($X^{-1}$) allows us to convert vectors from an input basis $B_I$ to an output basis $B_O$ and $X$ from $B_O$ to $B_I$.&lt;/p&gt;
+
+&lt;p&gt;If $B_I$ is standard basis, means 
+\(X = \begin{bmatrix} 1 &amp;amp; 0 \\ 0 &amp;amp; 1 \end{bmatrix}\), then:&lt;/p&gt;
+
+\[[u]_{B_O} = B_O^{-1}.I.[u]_{B_I}\]
+
+\[[u]_{B_O} = B_O^{-1}.[u]_{B_I}\]
+
+&lt;p&gt;&lt;strong&gt;How to transorm a vector in new basis?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Consider a matrix $A$ associated to a tranformation $T$, when applied to a vector $u$ in basis $B_1$, produces a transformed vector in basis $B_1$ denoted as $[v]_{B_1}$. 
+\([v]_{B_1} = A[u]_{B_1} 
+\tag{1}\)&lt;/p&gt;
+
+&lt;p&gt;When vector $u$ is represented in another basis, say  $B_2$, a change of basis matrix $X$ is applied as discussed in previous section.&lt;/p&gt;
+
+&lt;p&gt;So vector $u$ in basis $B_2$ denoted as $[u]_{B_2}$ is given as:&lt;/p&gt;
+
+&lt;p&gt;\([u]_{B_2} = X[u]_{B_1}\) To transform $[u]_{B_2}$ with changed basis to another vector $v$, we need to apply a transformation matrix (say $D$) relative to  basis $B_2$. The tranformation will be:&lt;/p&gt;
+
+\[[v]_{B_2} = D[u]_{B_2}\]
+
+&lt;p&gt;The transormation matrix $D$ is unknown and needs to be determined in new basis $B_2$.&lt;/p&gt;
+
+&lt;p&gt;There is an alternative way to determine the transfomed vector $[v]_{B2}$. Steps are listed below:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Convert the vector back to basis $B1$ to produce $[u]&lt;em&gt;{B_1}$. This is done by applying change of basis matrix $X$ to $[v]&lt;/em&gt;{B_2}$ as:&lt;/li&gt;
+&lt;/ul&gt;
+
+\[[u]_{B_1} = X[v]_{B_2} \tag{2}\]
+
+&lt;ul&gt;
+  &lt;li&gt;Apply tranformation matrix $A$ to transform $[u]&lt;em&gt;{B_1}$ to $[v]&lt;/em&gt;{B_1}$ as per equation 1.&lt;/li&gt;
+&lt;/ul&gt;
+
+\[[v]_{B_1} = A[u]_{B_1} \tag{3}\]
+
+&lt;ul&gt;
+  &lt;li&gt;Replace $[u]_{B_1}$ in equation 3 with right hand side part of equation 2,&lt;/li&gt;
+&lt;/ul&gt;
+
+\[[v]_{B_1} = AX[v]_{B_2} \tag{4}\]
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Change the basis of $[v]_{B_1}$ from $B_1$ to  $B_2$ by applying inverse of change of basis matrix $X^{-1}$
+ \([v]_{B_2} = X^{-1}[v]_{B_1}\)&lt;/p&gt;
+
+    &lt;p&gt;Replace $[v]_{B_1}$ with right hand side of equation 4. We get:&lt;/p&gt;
+
+\[[v]_{B_2} = X^{-1}AX[v]_{B_2}\]
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;However, we already have transformed vector $v$ in basis $B_2$ as:&lt;/p&gt;
+
+&lt;p&gt;\([v]_{B_2} = D[u]_{B_2}\)
+\(\implies D= X^{-1}AX\)&lt;/p&gt;
+
+&lt;p&gt;With this, we have determined the transormation matrix $D$ in new basis corresponding to a transformation (represented by $A$) in old basis through just the change of basis matrix $X$ and its inverse $X^{-1}$.&lt;/p&gt;
+
+&lt;p&gt;This $D= X^{-1}AX$ can be interpreted as decomposition of a matrix $D$ into matrices $X$ and $A$. It has many applications in machine and deep learning whihc we will discuss in future posts.&lt;/p&gt;</content><author><name>Faisal Ghaffar</name></author><category term="updates" /><summary type="html">A vector $u$ is characterised with respect to a basis of a coordinate system. The basis provide a reference that is used to associate numbers with geometric vectors. In the $\mathbb{R}^2$ Cartesian plane, a vector $u=\begin{bmatrix} 3 \\ 2 \end{bmatrix}$ is considered as a linear combination of the standard basis vectors $i=\begin{bmatrix} 1 \\ 0\end{bmatrix}$ and $j=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ as:</summary></entry><entry><title type="html">My First Post</title><link href="http://localhost:4000/updates/2021/11/24/firstpost.html" rel="alternate" type="text/html" title="My First Post" /><published>2021-11-24T00:00:00+00:00</published><updated>2021-11-24T00:00:00+00:00</updated><id>http://localhost:4000/updates/2021/11/24/firstpost</id><content type="html" xml:base="http://localhost:4000/updates/2021/11/24/firstpost.html">&lt;p&gt;This is my first post. Thank you for reading it!&lt;/p&gt;</content><author><name>Faisal Ghaffar</name></author><category term="updates" /><summary type="html">This is my first post. Thank you for reading it!</summary></entry></feed>
